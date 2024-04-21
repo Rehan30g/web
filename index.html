@@ -3,37 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navigation Menu</title>
+    <title>Navigation</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 20px;
         }
-        nav {
-            background-color: #333;
-            padding: 10px;
-            text-align: center;
+        .nav-box {
+            background: #fff;
+            border: 2px solid #ddd;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
-        nav a {
-            text-decoration: none;
-            color: #fff;
-            padding: 5px 10px;
-            margin: 0 5px;
+        .nav-box:hover {
+            border-color: #333;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-        nav a:hover {
-            background-color: #555;
+        .nav-box:active {
+            background: #eee;
         }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="#">Beranda</a>
-        <a href="#">Tentang Kami</a>
-        <a href="#">Layanan</a>
-        <a href="docs/ModPhysics_pathed">Mod Physics</a>
-        <a href="#">Kontak</a>
-    </nav>
-    <main>
-        <!-- Konten halaman Anda di sini -->
-    </main>
+    <div class="nav-box" onclick="location.href='/docs/ModPhysics_pathed';">Documentation</div>
+    <div class="nav-box">Empty :3</div>
+    <div class="nav-box">Empty to :3</div>
+    <!-- Add JavaScript here if needed for additional dynamic behavior -->
 </body>
 </html>
