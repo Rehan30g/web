@@ -10,7 +10,7 @@ local function createPet(color)
     local pet = Instance.new("Part")
     pet.Shape = Enum.PartType.Ball
     pet.Size = Vector3.new(2, 2, 2)
-    pet.Color = color
+    pet.Color = Color3.fromRGB(255, 255, 255)
     pet.Material = Enum.Material.Neon
     pet.Anchored = true
     pet.CanCollide = false
@@ -24,8 +24,8 @@ end
 local function movePetRandom(pet)
     while true do
         local angleXZ = math.rad(math.random(360))
-        local angleY = math.rad(math.random(-30, 30))  -- Memperbolehkan pergerakan naik dan turun
-        local distance = math.random(5, 10)  -- Area bergerak lebih lebar
+        local angleY = math.rad(math.random(-40, 40))  -- Memperbolehkan pergerakan naik dan turun
+        local distance = math.random(-5, 20)  -- Area bergerak lebih lebar
 
         local xOffset = math.cos(angleXZ) * distance
         local zOffset = math.sin(angleXZ) * distance
