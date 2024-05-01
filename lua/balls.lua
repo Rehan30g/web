@@ -88,7 +88,7 @@ labelPetCount.BorderSizePixel = 0
 labelPetCount.TextXAlignment = Enum.TextXAlignment.Center
 labelPetCount.Parent = frame
 
-local textBox = Instance.new("1")
+local textBox = Instance.new("TextBox")
 textBox.Size = UDim2.new(0.8, 0, 0, 20)
 textBox.Position = UDim2.new(0.1, 0, 0.3, 0)
 textBox.PlaceholderText = "Number of Pets"
