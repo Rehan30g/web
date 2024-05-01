@@ -36,7 +36,7 @@ local function movePetRandom(pet)
         local tween = TweenService:Create(pet, TweenInfo.new(2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = newPosition})
         tween:Play()
         
-        wait(0.5)
+        wait(1.5)
     end
 end
 
@@ -62,7 +62,7 @@ local frame = Instance.new("Frame")
 frame.Size = UDim2.new(0, 200, 0, 150)
 frame.Position = UDim2.new(1, -250, 0, 50) -- Pojok kanan atas layar
 frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-frame.BackgroundTransparency = 0.5
+frame.BackgroundTransparency = 0
 frame.BorderSizePixel = 0
 frame.Active = true  -- Memungkinkan drag
 frame.Draggable = true
@@ -84,10 +84,11 @@ labelPetCount.Position = UDim2.new(0, 0, 0.2, 0)
 labelPetCount.Text = "Enter Number of Pets:"
 labelPetCount.TextColor3 = Color3.fromRGB(255, 255, 255)
 labelPetCount.BackgroundTransparency = 1
+labelPetCount.BorderSizePixel = 0
 labelPetCount.TextXAlignment = Enum.TextXAlignment.Center
 labelPetCount.Parent = frame
 
-local textBox = Instance.new("TextBox")
+local textBox = Instance.new("1")
 textBox.Size = UDim2.new(0.8, 0, 0, 20)
 textBox.Position = UDim2.new(0.1, 0, 0.3, 0)
 textBox.PlaceholderText = "Number of Pets"
@@ -98,6 +99,7 @@ buttonSpawn.Size = UDim2.new(0.8, 0, 0, 30)
 buttonSpawn.Position = UDim2.new(0.1, 0, 0.5, 0)
 buttonSpawn.BackgroundColor3 = Color3.fromRGB(255, 100, 100)
 buttonSpawn.Text = "Spawn Pets"
+buttonSpawn.BorderSizePixel = 0
 buttonSpawn.Parent = frame
 
 local buttonRemoveAll = Instance.new("TextButton")
@@ -105,6 +107,7 @@ buttonRemoveAll.Size = UDim2.new(0.8, 0, 0, 30)
 buttonRemoveAll.Position = UDim2.new(0.1, 0, 0.8, 0)
 buttonRemoveAll.BackgroundColor3 = Color3.fromRGB(100, 255, 100)
 buttonRemoveAll.Text = "Remove All Pets"
+buttonRemoveAll.BorderSizePixel = 0
 buttonRemoveAll.Parent = frame
 
 -- Event handler untuk buttonSpawn
