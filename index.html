@@ -5,33 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navigation</title>
     <style>
+        /* Base styling */
         body {
             font-family: Arial, sans-serif;
-            background: #f4f4f4;
+            background: #121212; /* Dark background for the whole page */
+            color: #fff; /* Light text color for contrast */
             margin: 0;
-            padding: 20px;
+            padding: 0;
         }
-        .nav-box {
-            background: #fff;
-            border: 2px solid #ddd;
+
+        /* Styling for the navigation toolbar */
+        .toolbar {
+            background: #333;
             padding: 10px 20px;
-            margin-bottom: 10px;
-            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Spacing out the logo and the navigation items */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Logo styling */
+        .logo img {
+            height: 50px; /* Adjust the size of your logo */
+            transition: transform 0.5s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.1); /* Animation to scale logo on hover */
+        }
+
+        /* Navigation box styling */
+        .nav-box {
+            background: #222;
+            padding: 10px 20px;
+            margin: 20px;
+            border: 1px solid #444;
             transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
         }
+
         .nav-box:hover {
-            border-color: #333;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background: #333;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px); /* Lifts the box on hover */
         }
+
         .nav-box:active {
-            background: #eee;
+            background: #555;
         }
     </style>
 </head>
 <body>
+    <!-- Toolbar section -->
+    <div class="toolbar">
+        <div class="logo">
+            <img src="https://raw.githubusercontent.com/Rehan30g/web/main/20240506_161501.png" alt="Website Logo">
+        </div>
+        <div class="nav-links">
+            <!-- Optionally, you can add more navigation links here -->
+        </div>
+    </div>
+
+    <!-- Navigation boxes below the toolbar -->
     <div class="nav-box" onclick="location.href='docs/ModPhysics_pathed';">Mod Physics Patch for Pojav</div>
     <div class="nav-box">Empty :3</div>
-    <div class="nav-box">Empty to :3</div>
+    <div class="nav-box">Empty too :3</div>
     <!-- Add JavaScript here if needed for additional dynamic behavior -->
 </body>
 </html>
