@@ -1,0 +1,57 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #121212; 
+            color: #fff; 
+            margin: 0;
+            padding: 0;
+        }
+
+      
+        .toolbar {
+            background: #333;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        
+        .logo img {
+            height: 50px;
+            transition: transform 0.5s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.1);
+        }
+
+      
+        .nav-box {
+            background: #222;
+            padding: 20px 30px;
+            margin: 20px;
+            border: 1px solid #444;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 8px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .nav-box:hover {
+            background: #333;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px); 
+        }
+
+        .nav-box:active {
+            background: #555;
+        }
+
+        
+        .nav-description {
+            font-size: 14px;
+            margin-top: 5px;
+        }
