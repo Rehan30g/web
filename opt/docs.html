@@ -54,6 +54,25 @@
         .nav-box:active {
             background: #555;
         }
+        
+        /* Styling for the back button */
+        .back-button {
+            position: fixed;  /* Use fixed positioning */
+            bottom: 20px;     /* Distance from the bottom of the viewport */
+            left: 20px;       /* Distance from the left of the viewport */
+            background: #444; /* Background color */
+            color: white;     /* Text color */
+            padding: 10px 20px; /* Padding around the text */
+            border: none;     /* No border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer;  /* Cursor indicates it's clickable */
+            transition: background 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        .back-button:hover {
+            background: #666; /* Darker background on hover */
+        }
+        
     </style>
 </head>
 <body>
@@ -68,9 +87,10 @@
     </div>
 
     <!-- Navigation boxes below the toolbar -->
-    <div class="nav-box" onclick="location.href='docs/ModPhysics_pathed';">Mod Physics Patch for Pojav</div>
-    <div class="nav-box">Empty :3</div>
-    <div class="nav-box">Empty too :3</div>
+    <div class="nav-box" onclick="location.href='opt/docs.html';">Projects</div>
+    <div class="nav-box" onclick="location.href='https://c.ai/';">Empty :3</div>
+    <div class="nav-box" onclick="location.href='https://github.com/';">Github</div>
     <!-- Add JavaScript here if needed for additional dynamic behavior -->
+    <button class="back-button" onclick="location.href='/';">&lt;</button>
 </body>
 </html>
