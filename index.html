@@ -37,12 +37,13 @@
         /* Navigation box styling */
         .nav-box {
             background: #222;
-            padding: 10px 20px;
+            padding: 20px 30px; /* Increased padding for better clickability */
             margin: 20px;
             border: 1px solid #444;
             transition: all 0.3s ease;
             cursor: pointer;
             text-align: center;
+            border-radius: 8px; /* Rounded corners for a modern look */
         }
 
         .nav-box:hover {
@@ -53,6 +54,12 @@
 
         .nav-box:active {
             background: #555;
+        }
+
+        /* Additional styles */
+        .nav-description {
+            font-size: 14px;
+            margin-top: 5px;
         }
     </style>
 </head>
@@ -68,9 +75,18 @@
     </div>
 
     <!-- Navigation boxes below the toolbar -->
-    <div class="nav-box" onclick="location.href='opt/docs.html';">Projects</div>
-    <div class="nav-box" onclick="location.href='https://c.ai/';">in progress (Di dalam sini ada hentai 😱)</div>
-    <div class="nav-box" onclick="location.href='https://github.com/Rehan30g/web';">Open Source</div>
+    <div class="nav-box" onclick="location.href='opt/docs.html';">
+        Projects
+        <div class="nav-description">Explore our projects</div>
+    </div>
+    <div class="nav-box" onclick="location.href='https://c.ai/';">
+        In Progress
+        <div class="nav-description">See what's currently being worked on (Warning: May contain explicit content)</div>
+    </div>
+    <div class="nav-box" onclick="location.href='https://github.com/Rehan30g/web';">
+        Open Source
+        <div class="nav-description">Check out our open source contributions</div>
+    </div>
     <!-- Add JavaScript here if needed for additional dynamic behavior -->
 </body>
 </html>
