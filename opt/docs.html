@@ -4,78 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navigation</title>
-    <style>
-        /* Base styling */
-        body {
-            font-family: Arial, sans-serif;
-            background: #121212; /* Dark background for the whole page */
-            color: #fff; /* Light text color for contrast */
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Styling for the navigation toolbar */
-        .toolbar {
-            background: #333;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between; /* Spacing out the logo and the navigation items */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Logo styling */
-        .logo img {
-            height: 50px; /* Adjust the size of your logo */
-            transition: transform 0.5s ease;
-        }
-
-        .logo img:hover {
-            transform: scale(1.1); /* Animation to scale logo on hover */
-        }
-
-        /* Navigation box styling */
-        .nav-box {
-            background: #222;
-            padding: 10px 20px;
-            margin: 20px;
-            border: 1px solid #444;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            text-align: center;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .nav-box:hover {
-            background: #333;
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
-            transform: translateY(-5px); /* Lifts the box on hover */
-        }
-
-        .nav-box:active {
-            background: #555;
-        }
-        
-        /* Styling for the back button */
-        .back-button {
-            position: fixed;  /* Use fixed positioning */
-            bottom: 20px;     /* Distance from the bottom of the viewport */
-            left: 20px;       /* Distance from the left of the viewport */
-            background: #444; /* Background color */
-            color: white;     /* Text color */
-            padding: 10px 20px; /* Padding around the text */
-            border: none;     /* No border */
-            border-radius: 5px; /* Rounded corners */
-            cursor: pointer;  /* Cursor indicates it's clickable */
-            transition: background 0.3s ease; /* Smooth transition for hover effect */
-            -webkit-tap-highlight-color: transparent; /* Remove blue highlight */
-        }
-
-        .back-button:hover {
-            background: #666; /* Darker background on hover */
-        }
-        
-    </style>
+    <link rel="stylesheet" href="res/opt-docs.css">
 </head>
 <body>
     <!-- Toolbar section -->
