@@ -6,12 +6,18 @@
             padding: 0;
         }
         .toolbar {
-            background: #333;
+            background: rgba(51, 51, 51, 0.5);
+            backdrop-filter: blur(20px);
             padding: 10px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
         }
         .logo img {
             height: 50px;
