@@ -7,7 +7,7 @@ read -p "Enter the URL to download: " url
 termux-notification --title "Download Started" --content "Downloading from $url"
 
 # Change the directory to /sdcard/ and start downloading the file
-cd /sdcard/
+cd /storage/0088-A210/Termux-Downloader
 if wget "$url"; then
     # Notification for successful download
     termux-notification --title "Download Success" --content "Download completed successfully!"
