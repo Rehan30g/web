@@ -3,18 +3,16 @@
 # Simple bash script to download files using wget in Termux
 # By Rehan30g
 
-# Function to print large rainbow text
-print_rainbow() {
+# Function to print large text with random colors
+print_random_colors() {
     local text="$1"
-    local colors=("31" "32" "33" "34" "35" "36")
-    local color_index=0
     figlet "$text" | while IFS= read -r line; do
-        echo -e "\e[1;${colors[$color_index]}m${line}\e[0m"
-        color_index=$(( (color_index + 1) % ${#colors[@]} ))
+        local color=$((31 + RANDOM % 7))  # Generate a random color code (31-37 for standard colors)
+        echo -e "\e[1;${color}m${line}\e[0m"
     done
 }
 
-# Check if a package is installed
+# Function to check if a package is installed
 check_package() {
     dpkg -s "$1" &> /dev/null
     return $?
@@ -40,7 +38,7 @@ done
 clear
 
 # Header
-print_rainbow "TDL"
+print_random_colors "TDL"
 echo -e "\n\e[1;34mTermux Downloader\e[0m\n"
 echo -e "\n\e[0;32mBy rehan30g\e[0m\n"
 
