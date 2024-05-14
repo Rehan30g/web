@@ -1,19 +1,26 @@
 #!/bin/bash
+# hello :3
+# Uhh, this is a simple bash code to download web/img/any file using wget for termux
+# You can sample this code without include credits btw
 
-# Asking for the URL
+## Package Required:
+# - termux-api --> pkg install termux-api
+# - wget --> pkg install wget
+# Termux Only
+
+# Asking
 read -p "Enter the URL to download: " url
 
-# Displaying a notification that the download has started
+# notification download started
 termux-notification --title "Download Started" --content "Downloading from $url"
 
-# Change the directory to /sdcard/ and start downloading the file
+
 cd /storage/0088-A210/Termux-Downloader
 if wget "$url"; then
-    # Notification for successful download
     termux-notification --title "Download Success" --content "Download completed successfully!"
-    exit 0  # Exiting with success status
+    exit 0  # success
 else
-    # Notification for failed download
+    # failed download
     termux-notification --title "Download Failed" --content "The download failed. Check the URL and try again."
-    exit 1  # Exiting with failure status
+    exit 1  # failure 
 fi
