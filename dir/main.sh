@@ -8,6 +8,8 @@
 # - wget --> pkg install wget
 # Termux Only
 
+# Code by Rehan30g
+
 # Asking
 read -p "Enter the URL to download: " url
 
@@ -15,7 +17,7 @@ read -p "Enter the URL to download: " url
 termux-notification --title "Download Started" --content "Downloading from $url"
 
 
-cd /storage/0088-A210/Termux-Downloader
+cd /storage/0088-A210/Termux-Downloader # Set this to your download location
 if wget "$url"; then
     termux-notification --title "Download Success" --content "Download completed successfully!"
     exit 0  # success
