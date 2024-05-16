@@ -1,0 +1,42 @@
+{
+    "title": "Mod Physics (Patched)",
+    "author": "Rehan30g",
+    "description": "Welcome to the patched version of Mod Physics designed for mobile users.",
+    "image": "https://via.placeholder.com/50",
+    "sections": [
+        {
+            "title": "Introduction",
+            "content": "Hello! Welcome to the patched version of Mod Physics. This mod is designed for mobile users, including Pojavlauncher, HMCL, and others."
+        },
+        {
+            "title": "Information",
+            "list": [
+                "This Mod is compatible with fabric 1.20.1.",
+                "Does not support any shader if you are using Optifabric or Iris.",
+                "Both Pro and Free versions are included."
+            ]
+        },
+        {
+            "title": "Attention",
+            "content": "This mod doesn't support Optifine Shaders, whether it's a pro or original version. Attempting to force it may result in crashes unless you use a zink renderer."
+        },
+        {
+            "title": "Setup",
+            "content": "Watch this video to learn how to install Physics mod in Pojavlauncher:",
+            "video": "https://www.youtube.com/embed/_jO7tFn7HxA",
+            "note": "Please note that this patch does not support the arm32 device!"
+        },
+        {
+            "title": "Download",
+            "content": "Download or your soul will be gone.",
+            "downloads": [
+                {
+                    "name": "Mod Physics (147.6 MB)",
+                    "date": "16 Mei 2024 | 13.26",
+                    "url": "https://www.mediafire.com/file/ggo7g644xaz9sw7/PhysicsMod.zip/file",
+                    "icon": "https://via.placeholder.com/40"
+                }
+            ]
+        }
+    ]
+}
