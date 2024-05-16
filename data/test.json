@@ -1,1 +1,35 @@
-
+{
+    "title": "Rehan30g Team",
+    "author": "Rehan30g",
+    "description": "This is a sample description of the Rehan30g team.",
+    "image": "https://via.placeholder.com/50",
+    "about": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Aliquam ullamcorper ipsum sed diam pellentesque ullamcorper.",
+        "Donec justo mauris, rhoncus sit amet purus non, ornare pulvinar ex."
+    ],
+    "screenshots": [
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/872px-Banana-Single.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNVR5oMLmuCtYJinMfvOBdNYa6QYWAiGpZKatsMqJxhX5XvF3Yejv91uQ&s=10"
+    ],
+    "downloads": [
+        {
+            "name": "File 1",
+            "date": "16 Mei 2024 | 13.26",
+            "url": "https://example.com/file1",
+            "icon": "https://via.placeholder.com/40"
+        },
+        {
+            "name": "File 2",
+            "date": "16 Mei 2024 | 13.26",
+            "url": "https://example.com/file2",
+            "icon": "https://via.placeholder.com/40"
+        },
+        {
+            "name": "File 3",
+            "date": "16 Mei 2024 | 13.26",
+            "url": "https://example.com/file3",
+            "icon": "https://via.placeholder.com/40"
+        }
+    ]
+}
