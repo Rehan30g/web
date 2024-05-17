@@ -5,9 +5,7 @@
     "image": "https://via.placeholder.com/50",
     "about": [
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Aliquam ullamcorper ipsum sed diam pellentesque ullamcorper.",
-        "Donec justo mauris, rhoncus sit amet purus non, ornare pulvinar ex.",
-        "this value support html output to"
+        "- this value support html output to"
     ],
     "screenshots": [
         "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/872px-Banana-Single.jpg",
