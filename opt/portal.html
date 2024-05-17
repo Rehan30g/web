@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Web</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #121212;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+    }
+
+    .toolbar {
+        background: #333;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .logo img {
+        height: 50px;
+        transition: transform 0.5s ease;
+        
+            }
+
+    .logo img:hover {
+        transform: scale(1.1);
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+    }
+
+    .nav-box {
+        background: #222;
+        padding: 20px 30px;
+        margin: 20px;
+        border: 1px solid #444;
+        transition: all 0.3s ease;
+        
+        text-align: center;
+        border-radius: 8px;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .button-find:hover {
+        background: #333;
+        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        transform: translateY(-5px);
+    }
+
+    .button-find:active {
+        background: #555;
+    }
+
+    .nav-description {
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    .preview {
+        display: none;
+        border-radius: 8px;
+        text-align: center;
+        margin-top: 20px;
+        transition: all 0.3s ease;
+        background: #222;
+        padding: 20px 30px;
+        
+        border: 1px solid #444;
+        transition: all 0.3s ease;
+    }
+
+    .preview img {
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+        margin-bottom: 20px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+    }
+
+    .preview h1 {
+        font-size: 24px;
+        margin: 10px 0;
+        font-weight: bold;
+    }
+
+    .preview h2 {
+        font-size: 18px;
+        margin: 10px 0;
+        font-weight: normal;
+        color: #bbb;
+    }
+
+    .preview p {
+        font-size: 16px;
+        color: #ccc;
+    }
+
+    .buttons {
+        margin-top: 20px;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .buttons button {
+        border: none;
+        cursor: pointer;
+        padding: 15px 30px;
+        margin: 0px;
+        border: 1px solid #444;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 8px;
+    }
+
+    .buttons .open-docs {
+        background: #ff4d4d;
+        border: none;
+        color: #fff;
+    }
+
+    .buttons .open-docs:hover {
+        background: #ff6e6e;
+        box-shadow: 0 5px 15px rgba(255, 156, 156, 0.1);
+        transform: translateY(-5px);
+    }
+
+    .buttons .find-another {
+        background: #333;
+        color: #fff;
+    }
+
+    .buttons .find-another:hover {
+      background: #333;
+        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        transform: translateY(-5px);
+    }
+    
+    .buttons .find-another:active {
+      background: #555;
+    }
+    
+    .button-find {
+      background: #333;
+        padding: 15px 30px;
+        margin: 0px;
+        border: 1px solid #444;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 8px;
+        -webkit-tap-highlight-color: transparent;
+        color: white;
+    }
+    
+    #input-code {
+      background: #111;
+      color: white;
+      border: none;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+    <div class="logo">
+        <img src="https://raw.githubusercontent.com/Rehan30g/web/main/20240508_112045.png" alt="R Hub">
+    </div>
+</div>
+
+<div class="container">
+    <div class="nav-box" id="search-box">
+        <input type="text" id="input-code" placeholder="Enter code" style="padding: 10px; width: 80%; margin-bottom: 10px;">
+        <button onclick="findMod()" class="button-find">Find</button>
+    </div>
+    <div class="preview" id="preview-box">
+        <img id="preview-image" src="" alt="Image">
+        <h1 id="preview-title"></h1>
+        <h2 id="preview-author"></h2>
+        <p id="preview-description"></p>
+        <div class="buttons">
+            <button class="open-docs" id="open-docs-btn">Open Docs</button>
+            <button class="find-another" onclick="findAnotherMod()">Find Another Mod</button>
+        </div>
+    </div>
+</div>
+
+<script>
+function findMod() {
+    const inputCode = document.getElementById('input-code').value;
+    const url = `https://raw.githubusercontent.com/Rehan30g/web/main/data/${inputCode}.json`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('preview-title').innerText = data.title;
+            document.getElementById('preview-author').innerText = `by ${data.author}`;
+            document.getElementById('preview-description').innerText = data.description;
+            document.getElementById('preview-image').src = data.image;
+            document.getElementById('open-docs-btn').onclick = () => window.open(`https://rehan30g.github.io/web/docs/loader?load=${inputCode}`, '_blank');
+
+            document.getElementById('search-box').style.display = 'none';
+            document.getElementById('preview-box').style.display = 'block';
+        })
+        .catch(error => alert('Failed to load data. Please try again.'));
+}
+
+function findAnotherMod() {
+    document.getElementById('search-box').style.display = 'block';
+    document.getElementById('preview-box').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
