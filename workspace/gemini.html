@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Bubble Input with AI Response</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1b1b1b;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.7;
+            filter: blur(50px) invert(0%);
+            animation: moveAndExpand 5s infinite ease-in-out;
+        }
+
+        @keyframes moveAndExpand {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+            50% {
+                transform: scale(1.5) translate(-50px, 0px);
+            }
+            100% {
+                transform: scale(1) translate(0px, 0px);
+            }
+        }
+
+        .input-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #fff;
+            border-radius: 50px;
+            padding: 10px;
+            transition: all 0.5s ease-out;
+            backdrop-filter: hue-rotate(180deg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .input-container {
+            background-color: rgba(51, 51, 51, 0.4);
+            width: 300px;
+            height: 50px;
+        }
+
+        input {
+            width: 100%;
+            border: none;
+            outline: none;
+            background: none;
+            color: #fff;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .loading-container {
+            display: none;
+            width: 50px;
+            height: 50px;
+            flex-direction: column;
+            border-radius: 50%;
+            overflow: hidden;
+            position: absolute;
+        }
+
+        .loading-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        .content-container {
+            display: none;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgba(51, 51, 51, 0);
+            position: absolute;
+            bottom: -100%;
+            opacity: 0;
+            transition: bottom 1.5s ease, opacity 1.5s ease;
+            margin-inline: 10px;
+        }
+
+        .content-loaded {
+            bottom: 0;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="circle" style="background-color: #FF5A5F; width: 200px; height: 200px; top: 10%; left: 20%;"></div>
+        <div class="circle" style="background-color: #00A699; width: 150px; height: 150px; top: 50%; left: 60%;"></div>
+        <div class="circle" style="background-color: #FC642D; width: 250px; height: 250px; top: 30%; left: 80%;"></div>
+    </div>
+
+    <div class="input-container">
+        <input type="text" id="main-input" placeholder="Type something..." />
+        <div class="loading-container" id="loading-container">
+            <img src="https://raw.githubusercontent.com/Rehan30g/web/main/Ball%401x-1.2s-200px-200px.gif" alt="Loading">
+        </div>
+        <div class="content-container" id="content-container">
+            <h1>Content Loaded</h1>
+        </div>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/generative-ai": "https://esm.run/@google/generative-ai"
+        }
+      }
+    </script>
+    <script type="module">
+        import { GoogleGenerativeAI } from "@google/generative-ai";
+
+        let API_KEY = '';
+
+        // Ask for API key when the page loads
+        window.onload = function() {
+            API_KEY = prompt("Please enter your Google Generative AI API key:");
+            if (!API_KEY) {
+                alert("API key is required to use this application.");
+                return;
+            }
+            initializeAI(API_KEY);
+        };
+        
+        // Initialize the Google Generative AI model
+        function initializeAI(apiKey) {
+            const genAI = new GoogleGenerativeAI(apiKey);
+
+            const inputContainer = document.querySelector('.input-container');
+            const inputField = document.getElementById('main-input');
+            const loadingContainer = document.getElementById('loading-container');
+            const contentContainer = document.getElementById('content-container');
+
+            inputField.addEventListener('keydown', function (event) {
+                if (event.key === 'Enter' && inputField.value !== '') {
+                    startLoadingAnimation(inputField.value, genAI);
+                }
+            });
+
+            async function startLoadingAnimation(prompt, genAI) {
+                // Transition input to loading bubble
+                inputContainer.style.transition = 'all 1s ease-out';
+                inputContainer.style.width = '50px';
+                inputContainer.style.height = '50px';
+                inputField.style.display = 'none';
+
+                setTimeout(() => {
+                    loadingContainer.style.display = 'flex';
+
+                    setTimeout(async () => {
+                        // Fetch AI response
+                        const responseText = await generateAIResponse(prompt, genAI);
+                        
+                        // Display done.gif
+                        loadingContainer.querySelector('img').src = 'https://raw.githubusercontent.com/Rehan30g/web/main/Ball%401x-1.2s-200px-200px.gif';
+
+                        setTimeout(() => {
+                            loadingContainer.style.display = 'none';
+                            inputContainer.style.transition = 'all 1.5s ease';
+                            inputContainer.style.width = '100%';
+                            inputContainer.style.height = '100%';
+                            inputContainer.style.border = 'none';
+                            inputContainer.style.borderRadius = '0';
+
+                            // Display the content with animation
+                            setTimeout(() => {
+                                contentContainer.innerHTML = `<p>${responseText}</p>`;
+                                contentContainer.style.display = 'flex';
+                                contentContainer.classList.add('content-loaded');
+                            }, 0);
+                        }, 0);
+                    }, 0);
+                }, 0);
+            }
+
+            async function generateAIResponse(prompt, genAI) {
+                const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+                try {
+                    const result = await model.generateContent(prompt);
+                    const response = await result.response;
+                    const text = await response.text();
+                    return text;
+                } catch (error) {
+                    console.error("Error generating AI response:", error);
+                    return "There was an error generating the response.";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
