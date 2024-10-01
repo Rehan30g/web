@@ -1,0 +1,139 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f2f2f7;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+.settings-header {
+    background-color: #f7f7f7;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+}
+.back-button {
+    text-decoration: none;
+    color: #007aff;
+    font-size: 24px;
+    margin-right: 10px;
+}
+.icon-back {
+    font-size: 24px;
+}
+.settings-title {
+    font-size: 24px;
+    font-weight: bold;
+    flex-grow: 1;
+    text-align: center;
+}
+.settings-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.settings-list li {
+    background-color: white;
+    padding: 15px;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+.settings-list li:last-child {
+    border-bottom: none;
+}
+.settings-list li:hover {
+    background-color: #f0f0f5;
+}
+.icon {
+    font-size: 18px;
+    color: #888;
+    margin-left: 10px;
+}
+.group-header {
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #888;
+}
+.settings-list a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.settings-list a .icon {
+    font-size: 16px;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+input:checked + .slider {
+    background-color: #4cd964;
+}
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+/* Align setting value to the right */
+.setting-value {
+    color: #888;
+    margin-right: 10px;
+}
+
+/* Animation */
+.slide-in {
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 0.65s ease, opacity 0.8s ease;
+}
+
+.slide-in-active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.slide-out {
+    transform: translateX(-100%) scale(1);
+    filter: blur(0px);
+    transition: transform 0.65s ease, filter 0.8s ease;
+}
+
+/* Menghapus highlight biru pada link dan tombol */
+* {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
